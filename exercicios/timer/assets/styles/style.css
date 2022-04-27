@@ -1,0 +1,47 @@
+html,
+body {
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+
+
+.flex-box {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+}
+
+.timeDiv{
+  align-items: center;
+  border-radius: 17px;
+  background-color: rgba(63, 85, 188, 0.8);
+  border: 1px solid black;
+  color: white;
+  display: flex;
+  font-size: 60px;
+  height: 170px;
+  justify-content: center;
+  width: 600px;
+}
+
+.timeDia {
+  background: no-repeat url("./imgs/manha.jpg");
+  background-size: cover;
+}
+
+.timeNoite {
+  background: no-repeat url("./imgs/noite.jpg");
+  background-size: cover;
+}
+
+.timeTarde {
+  background: no-repeat url("./imgs/tarde.jpg");
+  background-size: cover;
+}
+
+.timeMadrugada {
+  background: no-repeat url("./imgs/madrugada.jpg");
+  background-size: cover;
+}
