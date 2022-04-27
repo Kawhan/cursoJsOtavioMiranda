@@ -25,3 +25,16 @@ console.log(fizzBuzz(30)); // FizzBuzz
 console.log(fizzBuzz(-10)); // Invalid 0
 console.log(fizzBuzz(104)); // Invalid 0
 console.log(fizzBuzz(7)); // 7
+
+// professor resolução
+function FizzBuZZ(numero) {
+    if (typeof numero !== "number") return numero;
+    if (numero % 5 === 0 && numero % 5 === 0) return "FizzBuzz";
+    if (numero % 3 === 0) return "Fizz";
+    if (numero % 5 === 0) return "Buzz";
+    return numero;
+}
+
+for (let i = 0; i <= 100; i++) {
+    console.log(i, FizzBuZZ(i));
+}
