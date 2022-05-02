@@ -11,6 +11,28 @@
     outline: none;
 }
 
+h1{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+p {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+p button {
+    margin-left: 10px;
+    padding: 30px;
+    border-radius: 10px;
+    font-size: 20px;
+    font-weight: bold;
+    background-color: rgb(84, 166, 248);
+    color: white;
+}
+
 body {
     margin: 0;
     padding: 0;
@@ -61,4 +83,12 @@ form button:hover {
 
 .relogio {
     font-size: 3em;
+}
+
+.redText {
+    color: red;
+}
+
+.blackText{
+    color: black;
 }
