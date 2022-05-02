@@ -9,48 +9,51 @@ function meuEscopo() {
     let msgSegundos,
         msgMinutos = "00",
         msgHoras = "00";
+    let timerSet;
+    let value = false;
 
     data = new Date(`01-01-1970 ${msgHoras}:${msgMinutos}:${msgHoras}`);
-
-    let timerSet;
 
     buttoStart.addEventListener("click", (event) => {
         relogio.classList.remove("redText");
 
-        timerSet = setInterval(function () {
-            let timerSegundos = data.getSeconds() + numeroSegundos;
-            let timerMinutes = data.getMinutes() + numMinutos;
-            let timerHoras = data.getHours() + numHoras;
+        if (value === false) {
+            value = true;
+            timerSet = setInterval(function () {
+                let timerSegundos = data.getSeconds() + numeroSegundos;
+                let timerMinutes = data.getMinutes() + numMinutos;
+                let timerHoras = data.getHours() + numHoras;
 
-            if (timerSegundos <= 60) {
-                numeroSegundos++;
-                msgSegundos = adicionaSegundos(timerSegundos);
-            }
+                if (timerSegundos <= 60) {
+                    numeroSegundos++;
+                    msgSegundos = adicionaSegundos(timerSegundos);
+                }
 
-            if (timerSegundos > 60) {
-                timerSegundos = 0;
-                numeroSegundos = 0;
+                if (timerSegundos > 60) {
+                    timerSegundos = 0;
+                    numeroSegundos = 0;
 
-                numMinutos++;
-                msgSegundos = adicionaSegundos(timerSegundos);
-                timerMinutes = data.getMinutes() + numMinutos;
-                msgMinutos = adicionaMinutos(timerMinutes);
-            }
+                    numMinutos++;
+                    msgSegundos = adicionaSegundos(timerSegundos);
+                    timerMinutes = data.getMinutes() + numMinutos;
+                    msgMinutos = adicionaMinutos(timerMinutes);
+                }
 
-            if (timerMinutes > 60) {
-                timerMinutes = 0;
-                numMinutos = 0;
-                numeroSegundos = 0;
-                timerSegundos = 0;
+                if (timerMinutes > 60) {
+                    timerMinutes = 0;
+                    numMinutos = 0;
+                    numeroSegundos = 0;
+                    timerSegundos = 0;
 
-                numHoras++;
-                timerHoras = data.getHours() + numHoras;
-                msgMinutos = adicionaMinutos(timerMinutes);
-                msgHoras = adicionaHora(timerHoras);
-            }
+                    numHoras++;
+                    timerHoras = data.getHours() + numHoras;
+                    msgMinutos = adicionaMinutos(timerMinutes);
+                    msgHoras = adicionaHora(timerHoras);
+                }
 
-            relogio.innerHTML = `${msgHoras}:${msgMinutos}:${msgSegundos}`;
-        }, 1000);
+                relogio.innerHTML = `${msgHoras}:${msgMinutos}:${msgSegundos}`;
+            }, 1000);
+        }
     });
 
     buttoStop.addEventListener("click", function (event) {
@@ -58,6 +61,7 @@ function meuEscopo() {
             clearInterval(timerSet);
         }, 1);
 
+        value = false;
         relogio.classList.add("redText");
     });
 
@@ -71,6 +75,7 @@ function meuEscopo() {
         numHoras = 0;
         msgSegundos, (msgMinutos = "00"), (msgHoras = "00");
 
+        value = false;
         data = new Date(`01-01-1970 ${msgHoras}:${msgMinutos}:${msgHoras}`);
         relogio.innerHTML = `00:00:00`;
         relogio.classList.remove("redText");
