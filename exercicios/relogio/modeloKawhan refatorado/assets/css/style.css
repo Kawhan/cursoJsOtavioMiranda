@@ -85,11 +85,6 @@ form button:hover {
     font-size: 3em;
 }
 
-.relogio {
-    font-size: 3em;
-}
-
-.pausado {
+.stoped {
     color: red;
 }
-
