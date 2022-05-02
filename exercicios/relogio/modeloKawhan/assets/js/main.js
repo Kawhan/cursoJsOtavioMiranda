@@ -3,18 +3,19 @@ function meuEscopo() {
     const buttoStart = document.querySelector(".iniciar");
     const buttoStop = document.querySelector(".parar");
     const buttoReset = document.querySelector(".zerar");
+    let numeroSegundos = 0;
+    let numMinutos = 0;
+    let numHoras = 0;
+    let msgSegundos,
+        msgMinutos = "00",
+        msgHoras = "00";
+
+    data = new Date(`01-01-1970 ${msgHoras}:${msgMinutos}:${msgHoras}`);
 
     let timerSet;
 
-    buttoStart.addEventListener("click", function (event) {
+    buttoStart.addEventListener("click", (event) => {
         relogio.classList.remove("redText");
-        const data = new Date("01-01-1970 00:00:00");
-        let numeroSegundos = 0;
-        let numMinutos = 0;
-        let numHoras = 0;
-        let msgSegundos,
-            msgMinutos = "00",
-            msgHoras = "00";
 
         timerSet = setInterval(function () {
             let timerSegundos = data.getSeconds() + numeroSegundos;
@@ -65,6 +66,12 @@ function meuEscopo() {
             clearInterval(timerSet);
         }, 1);
 
+        numeroSegundos = 0;
+        numMinutos = 0;
+        numHoras = 0;
+        msgSegundos, (msgMinutos = "00"), (msgHoras = "00");
+
+        data = new Date(`01-01-1970 ${msgHoras}:${msgMinutos}:${msgHoras}`);
         relogio.innerHTML = `00:00:00`;
         relogio.classList.remove("redText");
     });
