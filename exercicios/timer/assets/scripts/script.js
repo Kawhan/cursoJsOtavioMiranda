@@ -2,11 +2,9 @@ function meuEscopo() {
     const divTime = document.querySelector(".timeDiv");
     const data = new Date();
 
-    const dataFormatada = formatData(data);
-
     verificaData(data);
 
-    adicionaData(divTime, dataFormatada);
+    contaData(divTime);
 }
 function formatData(data) {
     if (!(data instanceof Date)) {
@@ -39,9 +37,18 @@ function verificaData(data) {
     }
 }
 
-function adicionaData(divTime, dataFormatada) {
-    const element = document.createTextNode(dataFormatada);
-
-    divTime.appendChild(element);
+function contaData(divTime) {
+    setInterval(function () {
+        colocaData(divTime);
+    }, 1000);
 }
+
+function colocaData(divTime) {
+    const data = new Date();
+
+    const dataFormata = formatData(data);
+
+    divTime.innerHTML = dataFormata;
+}
+
 meuEscopo();
